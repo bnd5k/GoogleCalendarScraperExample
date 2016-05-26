@@ -1,7 +1,7 @@
 # Overview
 
 This is a Sinatra app that lists events pulled from a Google Calenda via the 
-[google-api-ruby-client]('https://github.com/google/google-api-ruby-client').
+[google-api-ruby-client](https://github.com/google/google-api-ruby-client).
 
 It's based on a sample provided, but whereas the Google's exaampe relies on 
 Redis, this example has no such dependency.
