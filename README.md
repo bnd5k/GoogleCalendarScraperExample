@@ -6,11 +6,16 @@ using in a server-side web environment.
 
 It's based on a sample 
 [provided here](https://github.com/google/google-api-ruby-client/tree/master/samples/web),
-but whereas the Google's example relies on Redis, this example has no such dependency. 
+but whereas the Google's example relies on Redis, this example simply stores the data locally
+(using Google's Google::Auth::Stores::FileTokenStore class).
 
-# Setup
+## Ruby Version
 
-* Download this repo, navigate to its root directory on your mathcine and `bundle install`.
+This was built for and intended for use with Ruby 2.3.
+
+## Setup
+
+* Clone or Download this repo, navigate to its root directory and run `bundle install`.
 * Create a project at https://console.developers.google.com
 * Go to the `API Manager` and enable the `Calendar` API
 * Go to `Credentials` and create a new OAuth Client ID of type 
@@ -34,7 +39,7 @@ NOTE: without the environment variables about, your app will not run.
 
 
 
-# Usage
+## Usage
 * In terminal, run the program
 
 ```
