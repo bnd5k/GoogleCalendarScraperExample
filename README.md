@@ -3,8 +3,8 @@
 This is a Sinatra app that lists events pulled from a Google Calenda via the 
 [google-api-ruby-client](https://github.com/google/google-api-ruby-client).
 
-It's based on a sample provided, but whereas the Google's exaampe relies on 
-Redis, this example has no such dependency.
+It's based on a sample provided, but whereas the Google's example relies on 
+Redis, this example has no such dependency. 
 
 # Setup
 
@@ -21,7 +21,7 @@ add the credentials to the .env file (along with email)
 
 
 # Usage
-* In terminal, run your program
+* In terminal, run the program
 
 ```
 ruby app.rb
