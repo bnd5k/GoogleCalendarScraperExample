@@ -34,7 +34,7 @@ helpers do
   def credentials_for(scope)
     authorizer = Google::Auth::WebUserAuthorizer.new(settings.client_id, scope, settings.token_store)
 
-    user_id = ENV["EMAIL"]
+    user_id = ENV["GCAL_EMAIL"]
 
     credentials = authorizer.get_credentials(user_id, request)
 
@@ -52,8 +52,8 @@ get('/') do
   service = Google::Apis::CalendarV3::CalendarService.new
   service.authorization = credentials_for(Google::Apis::CalendarV3::AUTH_CALENDAR)
 
-  calendar_id = ENV["EMAIL"] 
-  # ^^default calendar that's uses the email as the ID
+  calendar_id = ENV["GCAL_EMAIL"] 
+  #Note: many users have many calendars, so if you want a different one, just change this calendar_id
 
   @result = service.list_events(calendar_id,
                                 max_results: 10,
