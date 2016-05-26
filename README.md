@@ -26,6 +26,9 @@ GOOGLE_CLIENT_ID="<Google client id>"
 GOOGLE_CLIENT_SECRET="<Google Sercret>" 
 GCAL_EMAIL="<Email associated with Google Calendar>"
   # ^^ this should be the email address associated with the calendar you're inspecting
+
+CREDENTIALS_PATH = File.join(Dir.home, '.credentials', "gccal_scraper_example.yaml")
+  # ^^ modidfy to whatever filepath you want
 ```
 NOTE: without the environment variables about, your app will not run.
 

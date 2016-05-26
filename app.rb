@@ -1,14 +1,9 @@
-# This code is a modified version of this:
-# https://github.com/google/google-api-ruby-client/blob/master/samples/web/app.rb
-
 require 'sinatra'
 require 'googleauth'
 require 'googleauth/stores/file_token_store'
 require 'google/apis/calendar_v3'
 require 'google-id-token'
 require 'dotenv'
-
-CREDENTIALS_PATH = File.join(Dir.home, '.credentials', "gccal_scraper_example.yaml")
 
 configure do
   Dotenv.load
@@ -25,7 +20,7 @@ configure do
     ENV['GOOGLE_CLIENT_SECRET'] 
   )
 
-  set :token_store, Google::Auth::Stores::FileTokenStore.new(file: CREDENTIALS_PATH)
+  set :token_store, Google::Auth::Stores::FileTokenStore.new(file: ENV['CREDENTIALS_PATH'])
 end
 
 helpers do
