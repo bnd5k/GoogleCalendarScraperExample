@@ -11,7 +11,10 @@ but whereas the Google's example relies on Redis, this example simply stores the
 
 ## Ruby Version
 
-This was built for and intended for use with Ruby 2.3.
+This was built with Ruby 2.3. It's been tested with Ruby 2.1
+
+Gem versions are pinned to ensure that this app works as expected (i.e. to protect against
+changes to Google's API client gem).
 
 ## Setup
 
