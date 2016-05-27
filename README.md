@@ -26,7 +26,10 @@ changes to Google's API client gem).
 * Use `http://localhost:4567/oauth2callback` as the redirect URL
 * Use `http://localhost:4567` as the JavaScript origin
 * Download your new credentials, which should consist of a client_id and secret.
-* This project uses the dotenv gem, so to set environment variables, so you'll
+
+## Configuration
+
+This project uses the dotenv gem, so to set environment variables, so you'll
 add the credentials to the .env file (along with email).  Creat a .env file that looks like this
 
 ```
@@ -38,8 +41,18 @@ GCAL_EMAIL="<Email associated with Google Calendar>"
 CREDENTIALS_PATH = File.join(Dir.home, '.credentials', "gccal_scraper_example.yaml")
   # ^^ modidfy to whatever filepath you want
 ```
-NOTE: without the environment variables about, your app will not run.
 
+You have the choice of configuring the app to store credentials in Redis or on the
+filesystem.  If you set an environment variable for REDIS_STORE the app will use Google's
+RedisTokenStore class to store token information.  
+
+```
+REDIS_STORE=true
+```
+
+If you don't set this environment variable, the app will use Google's 
+FileTokenStore class by default. However, if you don't set the REDIS_STORE variable,
+be sure to set the CREDENTIALS_PATH, since it's used by the FileTokenStore class.
 
 
 ## Usage

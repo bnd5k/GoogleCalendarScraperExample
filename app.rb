@@ -4,6 +4,7 @@ require 'googleauth/stores/file_token_store'
 require 'google/apis/calendar_v3'
 require 'google-id-token'
 require 'dotenv'
+require 'redis'
 
 configure do
   Dotenv.load
@@ -20,7 +21,12 @@ configure do
     ENV['GOOGLE_CLIENT_SECRET'] 
   )
 
-  set :token_store, Google::Auth::Stores::FileTokenStore.new(file: ENV['CREDENTIALS_PATH'])
+  if ENV['REDIS_STORE']
+    set :token_store, Google::Auth::Stores::RedisTokenStore.new(redis: Redis.new)
+  else
+    set :token_store, Google::Auth::Stores::FileTokenStore.new(file: ENV['CREDENTIALS_PATH'])
+  end
+
 end
 
 helpers do
